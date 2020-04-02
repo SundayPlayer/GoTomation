@@ -1,0 +1,13 @@
+{
+  "server": [
+    {
+      "name": "baptiste",
+      "ip_addr": "51.15.129.65",
+      "port": "8022"
+    },
+    {
+      "name": "test",
+      "ip_addr": "192.168.0.1"
+    }
+  ]
+}
