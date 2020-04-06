@@ -1,12 +1,17 @@
 {
+  "app": {
+    "logfile": "gotomation.log"
+  },
   "server": [
     {
       "name": "baptiste",
       "ip_addr": "51.15.129.65",
+      "user": "baptiste",
       "port": "8022"
     },
     {
       "name": "test",
+      "user": "root",
       "ip_addr": "192.168.0.1"
     }
   ]

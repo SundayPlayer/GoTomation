@@ -2,6 +2,7 @@ package main
 
 import (
 	"../../internal/config"
+	"../../internal/app"
 	"io/ioutil"
 )
 
@@ -10,7 +11,11 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	if err := config.Init(fileContent); err != nil {
+
+	configs, err := config.Parse(fileContent)
+	if err != nil {
 		panic(err)
 	}
+
+	app.Init(configs)
 }

@@ -2,16 +2,21 @@ package config
 
 import (
 	"encoding/json"
-	"fmt"
 )
+
+type AppConfig struct {
+	Logfile string
+}
 
 type ServerConfig struct {
 	Name   string
 	IpAddr string `json:"ip_addr"`
+	User   string
 	Port   string `json:",omitempty"`
 }
 
 type GlobalConfig struct {
+	App    AppConfig
 	Server []ServerConfig
 }
 
@@ -27,15 +32,11 @@ func (s *ServerConfig) UnmarshalJSON(data []byte) error {
 	return nil
 }
 
-func Init(fileData []byte) error {
+func Parse(fileData []byte) (*GlobalConfig, error) {
 	conf := GlobalConfig{}
-
 	if err := json.Unmarshal(fileData, &conf); err != nil {
-		return err
+		return nil, err
 	}
 
-	for _, value := range conf.Server {
-		fmt.Printf("%v\n", value)
-	}
-	return nil
+	return &conf, nil
 }
