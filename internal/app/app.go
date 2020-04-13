@@ -1,10 +1,10 @@
 package app
 
 import (
-	"../config"
 	"log"
 	"os"
 	"time"
+
 	"../config"
 	"../gui"
 )
@@ -14,9 +14,9 @@ type App struct {
 	Log    *log.Logger
 }
 
-func Init(config config.GlobalConfig) {
+func Init(config *config.GlobalConfig) {
 	app := &App{
-		Config: config,
+		Config: *config,
 	}
 	f, err := os.OpenFile(app.Config.App.Logfile, os.O_WRONLY|os.O_CREATE|os.O_APPEND, 0644)
 	if err != nil {

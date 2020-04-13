@@ -1,9 +1,10 @@
 package main
 
 import (
-	"../../internal/config"
-	"../../internal/app"
 	"io/ioutil"
+
+	"../../internal/app"
+	"../../internal/config"
 )
 
 func main() {
