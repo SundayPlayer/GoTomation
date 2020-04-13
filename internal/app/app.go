@@ -5,6 +5,8 @@ import (
 	"log"
 	"os"
 	"time"
+	"../config"
+	"../gui"
 )
 
 type App struct {
@@ -26,5 +28,9 @@ func Init(config config.GlobalConfig) {
 	for _, value := range app.Config.Server {
 		app.Log.Printf(
 			"Server %s => User:%s, IP Address: %s, Port: %s\n", value.Name, value.User, value.IpAddr, value.Port)
+	}
+
+	if err := gui.NewGui(); err != nil {
+		panic(err)
 	}
 }
